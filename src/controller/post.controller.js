@@ -1,5 +1,5 @@
 import uploadSingleImage from "../../utils/uploadImage.js"
-import { createPostService, getPostsService } from "../service/post.service.js"
+import { createPostService, deletePostByIdService, getPostsService } from "../service/post.service.js"
 
 
 export const createPostController = async (req, res) => {
@@ -19,4 +19,11 @@ export const getPostController = async (req, res) => {
 
     const data = await getPostsService(req.user._id)
     res.json({ success: true, data })
+}
+
+export const deletePost = async (req, res) => {
+    const postId = req.params.id
+
+    const data = await deletePostByIdService(postId)
+    return res.json({ success: true, data: data })
 }
