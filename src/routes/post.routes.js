@@ -11,5 +11,4 @@ postRouter.post('/create-post', verifyToken, upload.single('image'), createPostC
 postRouter.delete('/delete-post/:id', verifyToken, deletePost)
 
 postRouter.get('/get-posts', verifyToken, getPostController)
-
 export default postRouter
