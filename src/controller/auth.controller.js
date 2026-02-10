@@ -7,7 +7,7 @@ import ApiResponse from "../../utils/response.js"
 
 export const LoginUser = async (req, res) => {
     const { email, password } = req.body
-
+    console.log(email, password)
     const user = await findOneUser(email)
     if (!user) {
         return ApiResponse.error(req, res, STATUS_CODES.NOT_FOUND, 'User Not Found')
