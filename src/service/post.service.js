@@ -9,3 +9,7 @@ export const getPostsService = async (userId) => {
     const post = await PostModel.find({ user: userId }).populate('user', 'name email')
     return post
 }
+export const deletePostByIdService = async (id) => {
+    const data = await PostModel.findByIdAndDelete(id)
+    return data
+}
